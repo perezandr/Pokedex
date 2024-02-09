@@ -1,0 +1,80 @@
+@import "../assets/mixins.scss";
+
+.Main {
+  height: 100vh;
+  @include flexbox-column($gap: 0px);
+  background: linear-gradient(
+    to bottom,
+    red 0 20%,
+    black 21% 26%,
+    white 27% 100%
+  );
+
+  .pokeball {
+    display: block;
+    width: 192px;
+    height: 192px;
+    @include flexbox-column;
+    cursor: pointer;
+    background: radial-gradient(
+        white 16px,
+        black 17px 18px,
+        white 19px 24px,
+        black 25px 32px,
+        transparent 33px
+      ),
+      linear-gradient(to bottom, red 0 80px, black 81px 96px, white 97px 100%);
+    border-radius: 50%;
+    border: 8px solid black;
+    box-shadow: inset -16px -8px 0 0 rgba(0, 0, 0, 0.2);
+    animation: shake 1.25s cubic-bezier(0.36, 0.07, 0.19, 0.97) 1.5s 3;
+
+    .form {
+      padding: 5px;
+      position: absolute;
+
+      .inputPokemon {
+        border-radius: 20px;
+        width: 190px;
+        height: 1.5rem;
+        background-color: rgb(255, 255, 255);
+        font-weight: bold;
+        border: 3px solid #000000;
+        text-align: center;
+      }
+
+      .inputPokemon::placeholder {
+        color: #000000;
+      }
+
+      .searchButton {
+        display: none;
+      }
+    }
+  }
+
+  .pokeball:hover {
+    animation: shake 1.25s cubic-bezier(0.36, 0.07, 0.19, 0.97) 0.5s 3;
+  }
+
+  @keyframes shake {
+    0% {
+      transform: translateX(0) rotate(0);
+    }
+    20% {
+      transform: translateX(-10px) rotate(-20deg);
+    }
+    30% {
+      transform: translateX(10px) rotate(20deg);
+    }
+    50% {
+      transform: translateX(-10px) rotate(-10deg);
+    }
+    60% {
+      transform: translateX(10px) rotate(10deg);
+    }
+    100% {
+      transform: translateX(0) rotate(0);
+    }
+  }
+}
