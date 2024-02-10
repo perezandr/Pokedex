@@ -150,11 +150,7 @@ export default function Pokedex() {
                 onChange={onHandleChange}
                 placeholder="Search a Pokemon"
               />
-              <input
-                className={styles.searchButton}
-                type="submit"
-                value="Search"
-              />
+              <input className={styles.searchButton} type="submit" value="Go" />
             </form>
           </div>
           <div className={styles.types}>

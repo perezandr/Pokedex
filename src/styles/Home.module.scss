@@ -48,7 +48,18 @@
       }
 
       .searchButton {
-        display: none;
+        border-radius: 20px;
+        border: none;
+        height: 1.8rem;
+        font-weight: bold;
+        background-color: rgb(0, 0, 0);
+        color: white;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .searchButton:hover {
+        color: red;
       }
     }
   }

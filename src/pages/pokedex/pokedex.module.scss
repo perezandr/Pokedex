@@ -67,18 +67,14 @@
       }
 
       .pokemonImage {
-        // border: 2px solid green;
         min-height: 120px;
         min-width: 120px;
         object-fit: content;
-        // width: 130px;
         border-radius: 20px;
-        // margin-top: 20px;
         padding: 10px;
       }
 
       .form {
-        // border: 2px solid red;
         padding: 5px;
 
         .inputPokemon {
@@ -97,7 +93,18 @@
         }
 
         .searchButton {
-          display: none;
+          border-radius: 20px;
+          border: none;
+          height: 1.8rem;
+          font-weight: bold;
+          background-color: rgb(0, 0, 0);
+          color: white;
+          cursor: pointer;
+          transition: color 0.3s ease;
+        }
+
+        .searchButton:hover {
+          color: red;
         }
       }
     }
