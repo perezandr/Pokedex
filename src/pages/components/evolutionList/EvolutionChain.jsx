@@ -21,7 +21,7 @@ const EvolutionList = ({ evolutionSprite }) => {
           shouldAlignStart ? styles.alignStart : ""
         }`}
       >
-        {evolutionSprite.length != 0 ? (
+        {evolutionSprite?.length > 0 ? (
           evolutionSprite?.map((evolution, index) => (
             <li className={styles.pokemonSpriteWrapper} key={index}>
               <Link href={`/pokedex/${evolution.name}`}>
