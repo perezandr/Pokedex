@@ -21,21 +21,28 @@ const EvolutionList = ({ evolutionSprite }) => {
           shouldAlignStart ? styles.alignStart : ""
         }`}
       >
-        {evolutionSprite?.map((evolution, index) => (
-          <li className={styles.pokemonSpriteWrapper} key={index}>
-            <Link href={`/pokedex/${evolution.name}`}>
-              <img
-                className={styles.pokemonSprite}
-                src={evolution.sprite}
-                alt={evolution.name}
-              />
-            </Link>
-          </li>
-        ))}
+        {evolutionSprite.length != 0 ? (
+          evolutionSprite?.map((evolution, index) => (
+            <li className={styles.pokemonSpriteWrapper} key={index}>
+              <Link href={`/pokedex/${evolution.name}`}>
+                {evolution.sprite ? (
+                  <img
+                    className={styles.pokemonSprite}
+                    src={evolution.sprite}
+                    alt={evolution.name}
+                  />
+                ) : (
+                  evolution.name
+                )}
+              </Link>
+            </li>
+          ))
+        ) : (
+          <img className={styles.emptyPokeball} src="/emptypokeball.png" />
+        )}
       </ul>
     </>
   );
-  // );
 };
 
 export default EvolutionList;

@@ -77,4 +77,34 @@
       transform: translateX(0) rotate(0);
     }
   }
+
+  .NotFoundWrapper {
+    width: 80%;
+    height: 50%;
+    @include flexbox-row($justCo: center, $alignIt: center);
+
+    .FakePikachu {
+      width: 200px;
+      height: auto;
+      // right: 20%;
+    }
+
+    .textWrapper {
+      @include flexbox-column;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .NotFoundWrapper {
+      @include flexbox-column;
+      flex-wrap: wrap;
+    }
+    .FakePikachu {
+      width: 300px;
+      right: 0%;
+      bottom: 20%;
+    }
+    .NotFoundTitle {
+      top: 30%;
+    }
+  }
 }

@@ -15,16 +15,21 @@ export default function Pokedex() {
 
   useEffect(() => {
     const fetchPokemonData = async () => {
+      setPokemonData({});
+      setEvolutionChain({});
+      setPokemonSpecies({});
+      setEvolutionSprite([]);
       const pokemonName = router.query.name && router.query.name.toLowerCase();
 
       if (!pokemonName) return;
 
       try {
-        const pokemonResponse = await fetch(
+        const pokemonResponseData = await fetch(
           `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
-        );
+        )
+          .then((response) => response.json())
+          .catch((error) => router.push("/404"));
 
-        const pokemonResponseData = await pokemonResponse.json();
         setPokemonData(pokemonResponseData);
 
         const speciesResponse = await fetch(
@@ -176,7 +181,9 @@ export default function Pokedex() {
           </div>
         </div>
       ) : (
-        <p className={styles.notFound}>{router.query.name + " non trovato"}</p>
+        <div className={styles.wrapper}>
+          <div className={styles.pokeball} />
+        </div>
       )}
     </main>
   );
