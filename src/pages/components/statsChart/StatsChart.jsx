@@ -1,5 +1,11 @@
 import styles from "./index.module.scss";
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from "recharts";
+import {
+  Radar,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+} from "recharts";
 
 const StatsChart = ({ pokemonStats }) => {
   const data = pokemonStats?.map((stat) => ({
@@ -9,9 +15,10 @@ const StatsChart = ({ pokemonStats }) => {
 
   return (
     data && (
-      <RadarChart height={200} width={300} outerRadius="60%" data={data}>
+      <RadarChart height={200} width={400} outerRadius="60%" data={data}>
         <PolarGrid />
         <PolarAngleAxis dataKey="name" stroke="black" />
+        <PolarRadiusAxis angle={30} domain={[0, 250]} />
         <Radar dataKey="value" stroke="red" fill="red" fillOpacity={0.5} />
       </RadarChart>
     )

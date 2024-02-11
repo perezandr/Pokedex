@@ -9,15 +9,13 @@ export default function Pokedex() {
   const router = useRouter();
   const [pokemonData, setPokemonData] = useState({});
   const [pokemonSearch, setPokemonSearch] = useState("");
-  // const [pokemonSpecies, setPokemonSpecies] = useState({});
-  // const [evolutionChain, setEvolutionChain] = useState({});
+
   const [evolutionSprite, setEvolutionSprite] = useState([]);
 
   useEffect(() => {
     const fetchPokemonData = async () => {
       setPokemonData({});
-      // setEvolutionChain({});
-      // setPokemonSpecies({});
+
       setEvolutionSprite([]);
       const pokemonName = router.query.name && router.query.name.toLowerCase();
 
@@ -37,12 +35,10 @@ export default function Pokedex() {
         );
 
         const speciesData = await speciesResponse.json();
-        // setPokemonSpecies(speciesData);
 
         const evolutionResponse = await fetch(speciesData.evolution_chain.url);
 
         const evolutionData = await evolutionResponse.json();
-        // setEvolutionChain(evolutionData.chain);
 
         const evolutionNames = extractEvolutionNames(
           evolutionData.chain,

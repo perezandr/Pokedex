@@ -137,7 +137,7 @@
     }
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1135px) {
     @include flexbox-column($dir: column-reverse);
     justify-content: center;
 
