@@ -2,7 +2,8 @@
 
 .Main {
   height: 100vh;
-  @include flexbox-column($gap: 0px);
+  @include flexbox-row($gap: 75px, $alignIt: center);
+  justify-content: center;
   background: linear-gradient(
     to bottom,
     red 0 20%,
@@ -10,12 +11,60 @@
     white 27% 100%
   );
 
+  .fillingDiv {
+    width: 25%;
+  }
+
+  .form {
+    padding: 5px;
+    @include flexbox-row($alignIt: center);
+
+    .inputPokemon {
+      border-radius: 20px;
+      width: 300px;
+      height: 3rem;
+      margin-right: 10px;
+      background-color: rgb(255, 255, 255);
+      font-weight: lighter;
+      font-size: 24px;
+      border: 3px solid #000000;
+      text-align: center;
+    }
+
+    .inputPokemon::placeholder {
+      color: #8d8888;
+    }
+
+    .inputPokemon:focus {
+      outline: 2px solid red;
+    }
+
+    .searchButton {
+      border-radius: 50%;
+      border: none;
+      height: 3.5rem;
+      width: 3.5rem;
+      font-size: 24px;
+      font-weight: bold;
+      background-color: rgb(0, 0, 0);
+      color: white;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .searchButton:hover {
+      color: red;
+    }
+  }
   .pokeball {
     display: block;
+    margin-top: 15%;
+    margin-right: 10%;
+    margin-bottom: 5%;
+    // margin-left: 10%;
+    align-self: flex-end;
     width: 192px;
     height: 192px;
-    @include flexbox-column;
-    cursor: pointer;
     background: radial-gradient(
         white 16px,
         black 17px 18px,
@@ -25,47 +74,9 @@
       ),
       linear-gradient(to bottom, red 0 80px, black 81px 96px, white 97px 100%);
     border-radius: 50%;
-    border: 8px solid black;
+    border: 8px solid rgb(0, 0, 0);
     box-shadow: inset -16px -8px 0 0 rgba(0, 0, 0, 0.2);
-    animation: shake 1.25s cubic-bezier(0.36, 0.07, 0.19, 0.97) 1.5s 3;
-
-    .form {
-      padding: 5px;
-      position: absolute;
-
-      .inputPokemon {
-        border-radius: 20px;
-        width: 190px;
-        height: 1.5rem;
-        background-color: rgb(255, 255, 255);
-        font-weight: bold;
-        border: 3px solid #000000;
-        text-align: center;
-      }
-
-      .inputPokemon::placeholder {
-        color: #000000;
-      }
-
-      .searchButton {
-        border-radius: 20px;
-        border: none;
-        height: 1.8rem;
-        font-weight: bold;
-        background-color: rgb(0, 0, 0);
-        color: white;
-        cursor: pointer;
-        transition: color 0.3s ease;
-      }
-
-      .searchButton:hover {
-        color: red;
-      }
-    }
-  }
-
-  .pokeball:hover {
-    animation: shake 1.25s cubic-bezier(0.36, 0.07, 0.19, 0.97) 0.5s 3;
+    animation: shake 1.25s cubic-bezier(0.36, 0.07, 0.19, 0.97) 1.5s infinite;
   }
 
   @keyframes shake {
@@ -116,6 +127,23 @@
     }
     .NotFoundTitle {
       top: 30%;
+    }
+
+    .form {
+      .inputPokemon {
+        width: 250px;
+        margin-right: 2px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    @include flexbox-column($dir: column-reverse);
+    justify-content: center;
+
+    .pokeball {
+      align-self: center;
+      margin-right: 0;
     }
   }
 }

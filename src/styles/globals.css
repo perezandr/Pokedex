@@ -2,8 +2,15 @@ html,
 body {
   margin: 0;
   padding: 0;
+  /* width: 100vh; */
+  height: 100vh;
 }
 
+@media screen and (max-width: 380px) {
+  html {
+    width: 380px;
+  }
+}
 ul {
   list-style: none;
 }

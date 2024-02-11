@@ -38,7 +38,7 @@ const EvolutionList = ({ evolutionSprite }) => {
             </li>
           ))
         ) : (
-          <img className={styles.emptyPokeball} src="/emptypokeball.png" />
+          <img className={styles.nonesymbol} src="/nonesymbol.png" />
         )}
       </ul>
     </>

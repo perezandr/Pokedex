@@ -1,6 +1,6 @@
-@mixin flexbox-column($gap: 10px) {
+@mixin flexbox-column($gap: 10px, $dir: column) {
   display: flex;
-  flex-direction: column;
+  flex-direction: $dir;
   justify-content: space-around;
   align-items: center;
   align-content: center;
